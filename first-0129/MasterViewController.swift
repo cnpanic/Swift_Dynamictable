@@ -61,18 +61,30 @@ class MasterViewController: UITableViewController {
     // MARK: - Table View
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 10
+        //10개의 섹션
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        //numberOfRowsInSection이라는 method가 section이라는 매개변수를 전달받는다.
+        //지금은 1개만 만들고 있어서, 0이라는 숫자 하나만 전달 받는다.
+        return 20
+        // 각 section은 20개의 cell
+//      default =
+//      return objects.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //CellForRowAt이라는 method는 indexPath라는 이름으로 IndexPath형의 매개변수를 전달받는다.
+        //IndexPath는 해당 cell의 위치, 즉, 어떤 section의 몇번째 Row인지에 대한 정보를 갖고 있다.
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        
+        cell.textLabel!.text = "Hello~!"
+        //cell내부의 Label에는 "Hello~!"로 채움
+//        default =
+//        let object = objects[indexPath.row] as! NSDate
+//        cell.textLabel!.text = object.description
         return cell
     }
 
